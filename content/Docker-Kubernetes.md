@@ -59,6 +59,8 @@ Kubernetes? 🤔
 דיפלויימנט - השיטה המסורתית לעומת שיטת הקונטיינרים של דוקר ושיטת
 קוברנטס.
 
+![docker and k8s architectures](docker-k8s.png)
+
 זה ככה רק על קצה המזלג. אם הפוסט עשה לכם חשק לצלול יותר לנושא ומצאתם בו
 עניין, אשמח ללייק ולתגובה 😉 וכמובן מי שיכול להוסיף מהידע שלו, מוזמן
 להעשיר אותנו בתגובות 🙌

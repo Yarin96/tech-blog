@@ -14,9 +14,9 @@ export type PostType = {
 export default function PostItem({ post }: { post: PostType }) {
   const { title, image, info, date, slug } = post;
 
-  const formattedDate = new Date(date).toLocaleDateString("he-IL", {
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
-    month: "numeric",
+    month: "long",
     year: "numeric",
   });
 
