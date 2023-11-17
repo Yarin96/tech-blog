@@ -65,7 +65,15 @@ ReactDOM.
 מהירה מבחינת ביצועים יחסית לפריימוורקים אחרים, כדוגמת אנגולר, וזו אחת
 הסיבות מדוע היא כזו פופולרית.
 
-\-\--
+```typescript
+const basics = 'Okay, that should not be too difficult actually';
+
+function printBasics() {
+  console.log(basics):
+}
+
+printBasics();
+```
 
 עד כאן לפוסט זה, אם אהבתם את התוכן אשמח ללייק, תגובה ושיתוף 😃
 
