@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./contact-form.module.css";
 import axios from "axios";
+import Notification from "../ui/notification";
 
 type FormDetailsType = {
   email: string;
@@ -15,12 +16,39 @@ export default function ContactForm() {
     message: "",
   });
 
-  function sendMessageHandler(event: React.FormEvent) {
+  const [requestStatus, setRequestStatus] = useState("");
+  const [requestError, setRequestError] = useState<unknown>();
+
+  useEffect(() => {
+    if (requestStatus === "success" || requestStatus === "error") {
+      const timer = setTimeout(() => {
+        setRequestStatus("");
+        setRequestError(null);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  async function sendMessageHandler(event: React.FormEvent) {
     event.preventDefault();
 
-    const response = axios.get(`/api/contact`, {
-      method: "POST",
-    });
+    setRequestStatus("pending");
+
+    try {
+      const response = await axios.post("/api/contact", {
+        details: enteredDetails,
+      });
+
+      if (!response.data.ok) {
+        throw new Error(response.data.message || "Something went wrong");
+      }
+      setRequestStatus("success");
+      setEnteredDetails({ email: "", name: "", message: "" });
+    } catch (error: unknown) {
+      setRequestError(error);
+      setRequestStatus("error");
+    }
   }
 
   const inputChangeHandler = (
@@ -33,6 +61,32 @@ export default function ContactForm() {
       [id]: value,
     }));
   };
+
+  let notification;
+
+  if (requestStatus === "pending") {
+    notification = {
+      status: "pending",
+      title: "Sending message...",
+      message: "Your message is on its way!",
+    };
+  }
+
+  if (requestStatus === "success") {
+    notification = {
+      status: "success",
+      title: "Success!",
+      message: "Message sent successfully!",
+    };
+  }
+
+  if (requestStatus === "error") {
+    notification = {
+      status: "error",
+      title: "Error!",
+      message: requestError,
+    };
+  }
 
   return (
     <section className={classes.contact}>
@@ -65,6 +119,7 @@ export default function ContactForm() {
           <textarea
             id="message"
             rows={5}
+            required
             value={enteredDetails.message}
             onChange={inputChangeHandler}
           ></textarea>
@@ -73,6 +128,13 @@ export default function ContactForm() {
           <button>Send Message</button>
         </div>
       </form>
+      {notification && (
+        <Notification
+          status={notification.status}
+          title={notification.title}
+          message={notification.message}
+        />
+      )}
     </section>
   );
 }

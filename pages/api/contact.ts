@@ -1,6 +1,8 @@
+import { Request, Response } from "express";
+
 export default function handler(req: Request, res: Response) {
   if (req.method === "POST") {
-    const { email, name, message } = req.body;
+    const { email, name, message } = req.body.details;
 
     if (
       !email ||
