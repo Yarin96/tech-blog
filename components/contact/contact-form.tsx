@@ -28,7 +28,7 @@ export default function ContactForm() {
 
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [requestStatus]);
 
   async function sendMessageHandler(event: React.FormEvent) {
     event.preventDefault();
@@ -40,9 +40,10 @@ export default function ContactForm() {
         details: enteredDetails,
       });
 
-      if (!response.data.ok) {
+      if (response.status >= 300) {
         throw new Error(response.data.message || "Something went wrong");
       }
+
       setRequestStatus("success");
       setEnteredDetails({ email: "", name: "", message: "" });
     } catch (error: unknown) {
@@ -84,7 +85,10 @@ export default function ContactForm() {
     notification = {
       status: "error",
       title: "Error!",
-      message: requestError,
+      message:
+        requestError instanceof Error
+          ? requestError.message
+          : "Something went wrong",
     };
   }
 
