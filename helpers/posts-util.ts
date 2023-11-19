@@ -12,6 +12,7 @@ export function getPostData(postIdentifier: string) {
 
   const postData = {
     slug: postSlug,
+    isFeatured: data.isFeatured,
     ...data,
     content: content,
   };

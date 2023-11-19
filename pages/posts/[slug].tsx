@@ -2,7 +2,7 @@ import PostContent from "../../components/posts/post-detail/post-content";
 import { getPostData, getPostFiles } from "../../helpers/posts-util";
 import Head from "next/head";
 
-export default function SinglePostPageDetails(props) {
+export default function SinglePostPageDetails(props: any) {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ export default function SinglePostPageDetails(props) {
   );
 }
 
-export function getStaticProps(context) {
+export function getStaticProps(context: any) {
   const { params } = context;
   const { slug } = params;
 

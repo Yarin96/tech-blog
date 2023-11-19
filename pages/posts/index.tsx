@@ -2,7 +2,7 @@ import AllPosts from "../../components/posts/all-posts";
 import { getAllPosts } from "../../helpers/posts-util";
 import Head from "next/head";
 
-export default function AllPostsPage(props) {
+export default function AllPostsPage(props: any) {
   return (
     <>
       <Head>

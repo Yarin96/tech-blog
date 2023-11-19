@@ -3,8 +3,13 @@ import classes from "./post-content.module.css";
 import ReactMarkdown from "react-markdown";
 import { PostType } from "../post-item";
 import Image from "next/image";
-import { Prism as CodeHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { PrismLight as CodeHighlighter } from "react-syntax-highlighter";
+import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
+import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import ts from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
+
+CodeHighlighter.registerLanguage("js", js);
+CodeHighlighter.registerLanguage("ts", ts);
 
 export default function PostContent({ post }: { post: PostType }) {
   const imagePath = `/images/posts/${post.slug}/${post.image}`;
