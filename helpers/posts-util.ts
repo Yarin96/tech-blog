@@ -15,6 +15,7 @@ export function getPostData(postIdentifier: string) {
 
   const postData = {
     slug: postSlug,
+    isFeatured: data.isFeatured,
     ...data,
     content: content,
   };
@@ -38,5 +39,5 @@ export function getAllPosts() {
 }
 
 export function getFeaturedPosts() {
-  return getAllPosts().filter((post) => post.isFeatured);
+  return getAllPosts().filter((post) => post.isFeatured === true);
 }

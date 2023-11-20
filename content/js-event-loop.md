@@ -49,7 +49,7 @@ This is because it is possible that in the Call Stack there are tasks
 currently executing at runtime, and adding them can worsen the situation
 and cause errors. That\'s why we need this intermediate station.
 
-⬜
+⬜⬜
 
 And as promised - what is the blocking issue? ❌
 
