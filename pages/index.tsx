@@ -3,19 +3,32 @@ import FeaturedPosts from "../components/home-page/featured-post";
 import Hero from "../components/home-page/hero";
 import { PostType } from "../components/posts/post-item";
 import { getFeaturedPosts } from "../helpers/posts-util";
+import { useEffect, useState } from "react";
 
 export default function Home({ posts }: { posts: PostType[] }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <>
       <Head>
-        <title>Yarin's tech blog</title>
+        <title>Yarin Tech Blog</title>
         <meta
           name="description"
-          content="I post about technologies and web development."
+          content="I am a passionate full-stack developer, and I post about technologies and web development."
         />
       </Head>
-      <Hero />
-      <FeaturedPosts posts={posts} />
+      {isClient ? (
+        <>
+          <Hero />
+          <FeaturedPosts posts={posts} />
+        </>
+      ) : (
+        <h1>'Hydrating...'</h1>
+      )}
     </>
   );
 }

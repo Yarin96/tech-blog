@@ -28,6 +28,7 @@ export default function PostContent({ post }: { post: PostType }) {
               alt={image.properties.alt}
               width={600}
               height={300}
+              layout="responsive"
             />
           </div>
         );

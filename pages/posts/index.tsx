@@ -9,7 +9,7 @@ export default function AllPostsPage(props: any) {
         <title>All Posts</title>
         <meta
           name="description"
-          content="A list of all programming guides and posts!"
+          content="A list of all programming guides and posts I have written."
         />
       </Head>
       <AllPosts posts={props.posts} />

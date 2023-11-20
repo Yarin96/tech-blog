@@ -10,9 +10,11 @@ export function getPostData(postIdentifier: string) {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
+  console.log("data: ", data);
+  console.log("content: ", content);
+
   const postData = {
     slug: postSlug,
-    isFeatured: data.isFeatured,
     ...data,
     content: content,
   };
@@ -28,6 +30,7 @@ export function getAllPosts() {
   const postFiles = getPostFiles();
 
   return postFiles.map((postFile) => {
+    console.log(postFile);
     return getPostData(postFile);
   });
 

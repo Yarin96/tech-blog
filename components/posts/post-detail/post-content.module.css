@@ -11,8 +11,8 @@
 
 .content p {
   color: var(--color-grey-800);
-  direction: rtl;
-  text-align: right;
+  direction: ltr;
+  text-align: left;
 }
 
 .content .image {
