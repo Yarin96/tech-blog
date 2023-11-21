@@ -1,81 +1,31 @@
 ---
-title: "React VirtualDOM"
-date: "2023-12-3"
-image: react-virtual-dom.png
-info: React virtual dom info
+title: "React Virtual DOM"
+date: "2023-11-3"
+image: react-logo.png
+info: "As React developers, you've probably heard about the Virtual DOM. What is it exactly, and how does it work? And how does it give React an advantage over other front-end libraries?"
 isFeatured: true
 ---
 
-בתור מפתחי ריאקט, בטח שמעתם בעבר על ה - VirtualDOM.
+As React developers, you've probably heard about the Virtual DOM. What is it exactly, and how does it work? And how does it give React an advantage over other front-end libraries?
 
-מה זה בכלל? איך זה בדיוק עובד?
+A deep understanding of the Virtual DOM will help us become better React developers. Let's dive into this concept:
 
-ואיך זה נותן לריאקט יתרון על פני ספריות פרונט אנד אחרות?
+👉 To start, let's refresh our memory about the Real DOM or simply DOM (Document Object Model). It refers to the structured HTML documents in a data tree format (containing nodes and objects) sent to the browser with each user request to visit a specific page on a website. The DOM serves as an interface to HTML documents, allowing scripting languages like JavaScript to manipulate the document content.
 
-הבנה מעמיקה של ה- VirtualDOM תעזור לנו להיות מפתחי ריאקט טובים יותר.
-
-בואו נצלול פנימה אל תוך הקונספט הזה 👇👇
-
-👈 בתור התחלה, נרענן קצת את הזיכרון שלנו לגבי ה- Real DOM או בקצרה DOM
-(Document Object Model). מדובר במסמכי HTML המסודרים במבנה נתונים של עץ
-(שמכיל צמתים ואובייקטים), ונשלחים לדפדפן בכל בקשה של משתמש לבקר בדף
-מסוים באתר. ה- DOM משרת כממשק למסמכי ה- HTML כך ששפות סקריפט כמו
-JavaScript יוכלו לבצע מניפולציות על תוכן המסמך.
-
-👈 שינויים ב- DOM מתבצעים בכל פעם שנרצה לעדכן את הסטייט הקיים ב- UI, כדי
-שיציג לנו מידע חדש על גבי העמוד באתר (נתייחס לזה כ-\"רינדור\" מחדש של
-הדף). השינויים אמנם יכולים להיות יחסית מהירים ולא יקרים, אך באפליקציות
-גדולות המכילות מספר רב של אלמנטים רינדור מחדש כרוך בביצועים כבדים 🤕. זה
-בא לידי ביטוי בכך שבכל רינדור ה- DOM יצטרך לעדכן את תוכן ואת סדר
-האלמנטים בכל שכבות העץ, כלומר גם בילדים של החוליה הרלוונטית, בנוסף על
-חישוב מחדש של קוד ה- CSS שלהם.
+👉 Changes in the DOM occur whenever we want to update the existing UI state to display new information about the page. These changes can be relatively fast and inexpensive, but in large applications with a significant number of re-rendered elements, performance issues arise. This is because each DOM render needs to update the content and order of elements in all layers of the tree, including children of the relevant node, along with the recalculation of their CSS.
 
 ⬜
 
-כמו שאתם רואים זה לא מצב אידיאלי ויקר מאוד מבחינת ביצועים. לכן, ריאקט
-מציעה פתרון מתאים לשיפור הביצועים בעזרת ה- VirtualDOM 👇:
+As you can see, this is not an ideal performance situation and can be costly. Therefore, React proposes a suitable solution to improve performance using the Virtual DOM 👇:
 
-👈 ה- VirtualDOM הוא למעשה קונספט של שכפול העץ של ה- DOM (ומכאן השם -
-וירטואלי) שנשמר בזיכרון הדפדפן, כך שכל אובייקט שקיים ב- DOM המקורי קיים
-גם ב- VirtualDOM. להבדיל מה- DOM, אין בידיו את הכוח לשנות את שכבות מסמכי
-ה- HTML ישירות. בריאקט, בכל שינוי סטייט (מצב נוכחי של הדף / עץ) השינוי
-יתבצע קודם כל וירטואלית.
+👉 The Virtual DOM is essentially a concept of duplicating the DOM tree (hence the name - virtual) preserved in the browser's memory. Every object existing in the original DOM also exists in the Virtual DOM. Unlike the DOM, the Virtual DOM does not have the power to directly change the layers of HTML documents. In React, with every state change, the change occurs first virtually.
 
-👈 למעשה, ריאקט מחזיקה בשני Virtual DOMs, אחד עם הסטייט הקודם שהיה לפני
-השינוי שבוצע על הדף ואחד עם הסטייט המעודכן. לאחר שריאקט מעדכנת את
-הקומפוננטות הדרושות ב- VirtualDOM היא משווה בין שניהם באמצעות אלגוריתם
-שנקרא \"Diffing\". האלגוריתם מוצא את השינויים הספיצפיים בין עדכון הסטייט
-הנוכחי לבין הקודם (בשני העצים הוירטואלים), במספר הצעדים המינימלי ביותר,
-במטרה למצוא רק את השינויים הספיציפיים בקומפוננטות הנדרשים לעדכון ב- DOM
-האמיתי (לפעמים מדובר בתגיות HTML בודדות). בכך האלגוריתם מונע מעבר על כל
-מבנה העץ ותורם לשיפור ביצועים משמעותי 🔝.
+👉 In practice, React maintains two Virtual DOMs: one with the previous state before the page change and one with the updated state. After React updates the required components in the Virtual DOM, it compares them using an algorithm called "Diffing." The algorithm finds specific changes between the current state update and the previous one in both virtual trees, in the minimum number of steps, aiming to identify only the specific changes in the components required for updating in the real DOM (sometimes involving single HTML tags). This algorithm prevents traversing the entire tree structure and contributes to significant performance improvement 🔝.
 
-👈 ריאקט עושה תהליך זה עבורנו באמצעות דבר שנקרא \"batch updates\", מה
-שבסה\"כ אומר שמספר שינויי סטייטים נשלחים כחבילת עדכון אחת 📦. גם זה גורם
-לחיסכון משמעותי בביצועים שכן גורם ל- UI לרונדר רק פעם אחת עם כל המידע
-המעודכן ולא בכל שינוי סטייט לחוד. התהליך כולו שתיארתי הרגע (של עדכון
-שינויים ב- DOM האמיתי דרך הוירטואלי) נקרא Reconciliation.
+👉 React performs this process for us through something called "batch updates," meaning a number of state changes are sent as a single update package 📦. This also results in significant performance savings, as it causes the UI to render only once with all the updated information, not with each state change separately. The entire process I described just now (updating changes in the real DOM through the virtual one) is called Reconciliation.
 
-👈 הספרייה בריאקט שאחראית לסנכרון הזה בין ה- DOM האמיתי לוירטואלי נקראת
-ReactDOM.
+👉 The React library responsible for synchronizing between the real and virtual DOM is called ReactDOM.
 
 ⬜
 
-בשורה התחתונה, ה-DOM הוירטואלי הוא אחד הכלים המאפשרים לריאקט להיות יותר
-מהירה מבחינת ביצועים יחסית לפריימוורקים אחרים, כדוגמת אנגולר, וזו אחת
-הסיבות מדוע היא כזו פופולרית.
-
-```typescript
-const basics = 'Okay, that should not be too difficult actually';
-
-function printBasics() {
-  console.log(basics):
-}
-
-printBasics();
-```
-
-עד כאן לפוסט זה, אם אהבתם את התוכן אשמח ללייק, תגובה ושיתוף 😃
-
-אציין שאני עדיין מחפש משרת סטודנט בתחום פיתוח התוכנה (בדגש על משרות
-פרונטאנד / בקאנד). אשמח ליצור קשר אם רלוונטי לכם!
+In conclusion, the Virtual DOM is one of the tools that allows React to be faster in terms of performance compared to other frameworks, such as Angular. This is one of the reasons why React is so popular.

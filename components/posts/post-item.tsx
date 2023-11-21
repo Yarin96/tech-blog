@@ -30,7 +30,7 @@ export default function PostItem({ post }: { post: PostType }) {
           <Image
             src={imagePath}
             alt={title}
-            width={400}
+            width={500}
             height={200}
             layout="responsive"
           />

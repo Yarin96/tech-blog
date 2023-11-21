@@ -1,9 +1,10 @@
 ---
 title: "JavaScript Event Loop"
 date: "2023-10-9"
-image: js-event-loop.png
-info: "A detailed explanation of the Event Loop in JavaScript, the runtime environment, and synchronous and
-asynchronous code."
+image: js-logo.png
+info: "What exactly is the Event Loop in JavaScript? What is synchronous and
+asynchronous code? And what does the JavaScript Runtime Environment have
+to do with it?"
 isFeatured: true
 ---
 
@@ -49,7 +50,7 @@ This is because it is possible that in the Call Stack there are tasks
 currently executing at runtime, and adding them can worsen the situation
 and cause errors. That\'s why we need this intermediate station.
 
-⬜⬜
+⬜
 
 And as promised - what is the blocking issue? ❌
 
