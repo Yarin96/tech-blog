@@ -23,13 +23,12 @@ export default function PostContent({ post }: { post: PostType }) {
         const imageUrl = `/images/posts/${post.slug}/${image.properties.src}`;
 
         return (
-          <Image
+          <img
             src={imageUrl}
             alt={image.properties.alt}
-            width={600}
-            height={300}
+            // width={600}
+            // height={300}
             className={classes.image}
-            unoptimized
           />
         );
       }
