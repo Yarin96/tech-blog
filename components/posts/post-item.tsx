@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import classes from "./post-item.module.css";
 
@@ -26,15 +26,13 @@ export default function PostItem({ post }: { post: PostType }) {
   return (
     <li className={classes.post}>
       <Link href={linkPath}>
-        <div className={classes.image}>
-          <Image
-            src={imagePath}
-            alt={title}
-            width={500}
-            height={200}
-            layout="responsive"
-          />
-        </div>
+        <Image
+          src={imagePath}
+          alt={title}
+          width={500}
+          height={270}
+          className={classes.image}
+        />
         <div className={classes.content}>
           <h3>{title}</h3>
           <time>{formattedDate}</time>

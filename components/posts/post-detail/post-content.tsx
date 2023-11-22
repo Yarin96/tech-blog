@@ -12,7 +12,7 @@ CodeHighlighter.registerLanguage("js", js);
 CodeHighlighter.registerLanguage("ts", ts);
 
 export default function PostContent({ post }: { post: PostType }) {
-  const imagePath = `/images/posts/${post.slug}/${post.image}`;
+  const imageHeaderPath = `/images/posts/${post.slug}/${post.image}`;
 
   const customComponents = {
     p: (paragraph: any) => {
@@ -20,17 +20,16 @@ export default function PostContent({ post }: { post: PostType }) {
 
       if (node.children[0].tagName === "img") {
         const image = node.children[0];
+        const imageUrl = `/images/posts/${post.slug}/${image.properties.src}`;
 
         return (
-          <div className={classes.image}>
-            <Image
-              src={`/images/posts/${post.slug}/${image.properties.src}`}
-              alt={image.properties.alt}
-              width={600}
-              height={300}
-              layout="responsive"
-            />
-          </div>
+          <Image
+            src={imageUrl}
+            alt={image.properties.alt}
+            width={600}
+            height={300}
+            className={classes.image}
+          />
         );
       }
 
@@ -52,7 +51,7 @@ export default function PostContent({ post }: { post: PostType }) {
 
   return (
     <article className={classes.content}>
-      <PostHeader title={post.title} image={imagePath} />
+      <PostHeader title={post.title} image={imageHeaderPath} />
       <ReactMarkdown components={customComponents}>
         {post.content}
       </ReactMarkdown>
