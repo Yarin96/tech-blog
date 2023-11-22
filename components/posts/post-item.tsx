@@ -32,6 +32,7 @@ export default function PostItem({ post }: { post: PostType }) {
           width={500}
           height={270}
           className={classes.image}
+          unoptimized
         />
         <div className={classes.content}>
           <h3>{title}</h3>

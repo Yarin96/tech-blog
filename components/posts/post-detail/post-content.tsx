@@ -29,6 +29,7 @@ export default function PostContent({ post }: { post: PostType }) {
             width={600}
             height={300}
             className={classes.image}
+            unoptimized
           />
         );
       }
