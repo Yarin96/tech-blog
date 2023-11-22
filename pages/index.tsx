@@ -21,13 +21,11 @@ export default function Home({ posts }: { posts: PostType[] }) {
           content="I am a passionate full-stack developer, and I post about technologies and web development."
         />
       </Head>
-      {isClient ? (
+      {isClient && (
         <>
           <Hero />
           <FeaturedPosts posts={posts} />
         </>
-      ) : (
-        <h1>'Hydrating...'</h1>
       )}
     </>
   );
