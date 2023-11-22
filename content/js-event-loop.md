@@ -1,7 +1,7 @@
 ---
 title: "JavaScript Event Loop"
 date: "2023-10-9"
-image: js-logo.PNG
+image: js-logo.png
 info: "What exactly is the Event Loop in JavaScript? What is synchronous and
 asynchronous code? And what does the JavaScript Runtime Environment have
 to do with it?"
@@ -81,4 +81,4 @@ callback queue and passes it to the Call Stack so it can perform safely.
 
 Below is a detailed demonstration of the whole process in the JavaScript Engine:
 
-![JS Runtime detailed process information](js-event-loop.PNG)
+![JS Runtime detailed process information](js-event-loop.png)
