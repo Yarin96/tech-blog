@@ -26,11 +26,11 @@ export default function PostItem({ post }: { post: PostType }) {
   return (
     <li className={classes.post}>
       <Link href={linkPath}>
-        <img
+        <Image
           src={imagePath}
           alt={title}
-          // width={500}
-          // height={270}
+          width={500}
+          height={270}
           className={classes.image}
         />
         <div className={classes.content}>
