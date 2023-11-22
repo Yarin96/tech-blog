@@ -1,7 +1,7 @@
 ---
 title: "Webpack Module Bundler"
 date: "2023-11-21"
-image: webpack-logo.png
+image: webpack-logo.PNG
 info: "Ever wondered how to boost the performance of your web apps
 significantly? 🤖"
 isFeatured: false
@@ -49,4 +49,4 @@ I highly recommend exploring the documentation for
 additional information and configurable options Webpack offers:
 [Webpack Official Docs Link](https://webpack.js.org/concepts/)
 
-![Webpack flow process](webpack-flow.png)
+![Webpack flow process](webpack-flow.PNG)
