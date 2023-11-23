@@ -3,7 +3,7 @@ title: "SQL vs NoSQL"
 date: "2023-11-23"
 image: sql-vs-nosql.png
 info: "What are the differences between a relational database and a non-relational database? When is it preferable to use one over the other?"
-isFeatured: true
+isFeatured: false
 ---
 
 **What are the differences between a relational database and a non-relational database?**
