@@ -6,7 +6,7 @@ info: "As React developers, you've probably heard about the Virtual DOM. What is
 isFeatured: true
 ---
 
-As React developers, you've probably heard about the Virtual DOM. What is it exactly, and how does it work? And how does it give React an advantage over other front-end libraries?
+**As React developers, you've probably heard about the Virtual DOM. What is it exactly, and how does it work? And how does it give React an advantage over other front-end libraries?**
 
 A deep understanding of the Virtual DOM will help us become better React developers. Let's dive into this concept:
 
@@ -22,7 +22,7 @@ As you can see, this is not an ideal performance situation and can be costly. Th
 
 👉 In practice, React maintains two Virtual DOMs: one with the previous state before the page change and one with the updated state. After React updates the required components in the Virtual DOM, it compares them using an algorithm called "Diffing." The algorithm finds specific changes between the current state update and the previous one in both virtual trees, in the minimum number of steps, aiming to identify only the specific changes in the components required for updating in the real DOM (sometimes involving single HTML tags). This algorithm prevents traversing the entire tree structure and contributes to significant performance improvement 🔝.
 
-👉 React performs this process for us through something called "batch updates," meaning a number of state changes are sent as a single update package 📦. This also results in significant performance savings, as it causes the UI to render only once with all the updated information, not with each state change separately. The entire process I described just now (updating changes in the real DOM through the virtual one) is called Reconciliation.
+👉 React performs this process for us through something called "batch updates," meaning a number of state changes are sent as a single update package. This also results in significant performance savings, as it causes the UI to render only once with all the updated information, not with each state change separately. The entire process I described just now (updating changes in the real DOM through the virtual one) is called Reconciliation.
 
 👉 The React library responsible for synchronizing between the real and virtual DOM is called ReactDOM.
 

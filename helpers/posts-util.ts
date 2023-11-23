@@ -13,6 +13,7 @@ export function getPostData(postIdentifier: string) {
   const postData = {
     slug: postSlug,
     isFeatured: data.isFeatured,
+    date: data.date,
     ...data,
     content: content,
   };
@@ -27,11 +28,11 @@ export function getPostFiles() {
 export function getAllPosts() {
   const postFiles = getPostFiles();
 
-  return postFiles.map((postFile) => {
+  const allPosts = postFiles.map((postFile) => {
     return getPostData(postFile);
   });
 
-  // return allPosts.sort((postA, postB) => (postA.date > postB.date ? -1 : 1));
+  return allPosts.sort((postA, postB) => (postA.date > postB.date ? -1 : 1));
 }
 
 export function getFeaturedPosts() {

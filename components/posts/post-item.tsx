@@ -20,14 +20,14 @@ export default function PostItem({ post }: { post: PostType }) {
     year: "numeric",
   });
 
-  // const imagePath = `/images/posts/${slug}/${image}`;
-  // const linkPath = `/posts/${slug}`;
+  const imagePath = `/images/posts/${slug}/${image}`;
+  const linkPath = `/posts/${slug}`;
 
   return (
     <li className={classes.post}>
-      <Link href={`/posts/${slug}`}>
+      <Link href={linkPath}>
         <Image
-          src={`/images/posts/${slug}/${image}`}
+          src={imagePath}
           alt={title}
           width={500}
           height={270}

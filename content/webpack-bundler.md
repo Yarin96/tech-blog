@@ -7,8 +7,8 @@ significantly? 🤖"
 isFeatured: false
 ---
 
-Ever wondered how to boost the performance of your web apps
-significantly? 🤖
+**Ever wondered how to boost the performance of your web apps
+significantly? 🤖**
 
 While downloading files might be relatively fast, the process of setting
 up the files requests and handling server tasks still takes time.

@@ -8,9 +8,9 @@ to do with it?"
 isFeatured: true
 ---
 
-What exactly is the Event Loop in JavaScript? What is synchronous and
+**What exactly is the Event Loop in JavaScript? What is synchronous and
 asynchronous code? And what does the JavaScript Runtime Environment have
-to do with it?
+to do with it?**
 
 That\'s exactly why I am here to explain it to you 👇👇
 
@@ -26,7 +26,7 @@ Another thing we should know about is the JavaScript Runtime Environment
 (JRE). In fact, this is the environment in which our program will be
 executed and contains several components that handle its performance:
 
-🔸 The JavaScript Engine -\> As you may assume from the title, this is
+🔸 **The JavaScript Engine** -\> As you may assume from the title, this is
 the engine that reads the JavaScript code. It executes it using a code
 interpreter called JIT (Just in Time). The JIT is basically a tool that
 combines interpreter and compiler methods together, identifying in
@@ -36,14 +36,14 @@ the Call Stack and the Heap. The tasks that pile up one after the other
 synchronously will be kept in a stack data structure called the Call
 Stack.
 
-🔸 The Web API -\> Includes functions that the browser provides us (such
+🔸 **The Web API** -\> Includes functions that the browser provides us (such
 as setInterval and setTimeout), and with them, we write asynchronous
 code which prevents the blocking issue in the Call Stack (I will explain
 the blocking issue soon). Here, the asynchronous tasks will pile up, and
 once they finish their execution, they will be moved to the Callback
 Queue.
 
-🔸 The Callback Queue -\> A queue data structure that includes callback
+🔸 **The Callback Queue** -\> A queue data structure that includes callback
 functions waiting to go back to the Call Stack. It is necessary because
 the Web API can\'t directly insert values randomly into the Call Stack.
 This is because it is possible that in the Call Stack there are tasks
@@ -52,7 +52,7 @@ and cause errors. That\'s why we need this intermediate station.
 
 ⬜
 
-And as promised - what is the blocking issue? ❌
+**And as promised - what is the blocking issue?** ❌
 
 In short, if right now in the Call Stack, we have a function that takes
 a long time to execute, the rest of the tasks that need to be performed
