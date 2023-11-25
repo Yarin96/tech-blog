@@ -15,10 +15,10 @@ export default function Home({ posts }: { posts: PostType[] }) {
   return (
     <>
       <Head>
-        <title>Yarin Tech Blog</title>
+        <title>Yarin Bar - Tech Blog</title>
         <meta
           name="description"
-          content="I am a passionate full-stack developer, and I post about technologies and web development."
+          content="I am a passionate full-stack developer with a deep-rooted connection to the field of web development, and I post about technologies and web development."
         />
       </Head>
       {isClient && (

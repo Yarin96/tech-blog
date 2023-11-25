@@ -6,7 +6,7 @@ export default function SinglePostPageDetails(props: any) {
   return (
     <>
       <Head>
-        <title>{props.title}</title>
+        <title>{props.post.title}</title>
         <meta name="description" content={props.post.info} />
       </Head>
       <PostContent post={props.post} />

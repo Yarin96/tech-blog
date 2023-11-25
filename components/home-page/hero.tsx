@@ -18,6 +18,7 @@ const Hero = () => {
         <TypewriterComponent
           options={{
             strings: [
+              "I am a Fullstack Developer",
               "I write about technologies",
               "I write about web development",
             ],
